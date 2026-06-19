@@ -4,15 +4,11 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class UserTripleA extends Authenticatable
+class Admin extends Authenticatable
 {
-    protected $table = 'triple_a_users';
+    protected $table = 'admin';
 
     protected $fillable = [
-        'fname',
-        'mname',
-        'lname',
-        'contact',
         'email',
         'password',
     ];

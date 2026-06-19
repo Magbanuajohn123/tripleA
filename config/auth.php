@@ -38,11 +38,18 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'web',
     ],
+
+    'admin' => [
+        'driver' => 'session',
+        'provider' => 'admin',
+    ],
+
+],
 
     /*
     |--------------------------------------------------------------------------
@@ -62,15 +69,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'web' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model' => App\Models\UserTripleA::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*

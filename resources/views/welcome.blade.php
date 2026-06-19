@@ -13,424 +13,457 @@
         rel="stylesheet">
 </head>
 
-<body class="bg-[#041a0d] ">
+<body class="bg-[#ffffff] cursor-pointer">
 
 
-
-
-    <nav id="navbar" class=" fixed w-full z-20 top-0 inset-s-0">
-        <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ asset('images/logo.png') }}" class="h-7" alt="Flowbite Logo">
-                <span class="self-center text-xl text-white font-semibold whitespace-nowrap font-[Poppins]">Triple A
-                    <span class="text-[#16A34A]">Rental</span> </span>
+    <nav id="navbar" class="bg-[#ffffff] fixed w-full z-20 top-0 ">
+        <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-3">
+            <a href="https://flowbite.com/" class="flex items-center space-x rtl:space-x-reverse">
+                <img src="{{ asset('images/logo.png') }}" class="h-12 w-12 hidden lg:block md:block"
+                    alt="Flowbite Logo">
+                <span class="self-center text-xl text-[#030825] font-bold font-[Poppins] whitespace-nowrap">
+                    Triple A <span class="text-[#029337]">Rental</span>
+                </span>
             </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button data-collapse-toggle="navbar-sticky" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-                    aria-controls="navbar-sticky" aria-expanded="false">
+
+            <!-- Actions & Hamburger (Right Side) -->
+            <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center">
+                <button type="button"
+                    class="text-gray-600 hidden sm:block focus:ring-4 hover:text-black focus:outline-none focus:ring-[#3b5998]/50 box-border border border-transparent font-medium leading-5 rounded-base text-sm px-4 py-2.5 text-center items-center">
+                    Log in
+                </button>
+                <button type="button" onclick="goToRegister()"
+                    class="group text-white hidden sm:block transition-all duration-400 bg-[#16A34A] hover:bg-[#0b8437] focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 box-border border border-transparent font-medium leading-5 rounded-base text-sm px-3 py-2 text-center items-center">
+                    Register <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1"></i>
+                </button>
+
+                <!-- Hamburger Button: Always visible on sm/md, hidden on lg -->
+                <button data-collapse-toggle="navbar-sticky" type="button" aria-controls="navbar-sticky"
+                    aria-expanded="false"
+                    class="inline-flex items-center p-2 text-sm text-black rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
                     <span class="sr-only">Open main menu</span>
-                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                        height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                            d="M5 7h14M5 12h14M5 17h14" />
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 7h14M5 12h14M5 17h10" />
                     </svg>
                 </button>
             </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul
-                    class="flex flex-col p-4 md:p-0 mt-4 font-medium  rounded-base  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 m">
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white md:p-0 hover:text-[#16A34A]"
-                            aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a href="#equipment"
-                            class="block py-2 px-3 text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-[#16A34A] md:p-0 md:dark:hover:bg-transparent">Equipment</a>
-                    </li>
 
+            <!-- Navigation Links (Collapsible) -->
+            <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
                     <li>
-                        <a href="#why"
-                            class="block py-2 px-3 text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-[#16A34A] md:p-0 md:dark:hover:bg-transparent">Why
-                            Us</a>
+                        <a href="#home"
+                            class="nav-link relative inline-block py-2 px-3 text-md font-[Poppins] text-gray-600 rounded-sm lg:bg-transparent lg:p-0 transition-all duration-300 hover:text-black after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all after:duration-300 hover:after:w-full"
+                            data-section="home">
+                            Home
+                        </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-[#16A34A] md:p-0 md:dark:hover:bg-transparent">How
-                            It Works</a>
+                        <a href="#inventory"
+                            class="nav-link relative inline-block py-2 px-3 font-[Poppins] text-gray-600 rounded hover:bg-neutral-tertiary lg:hover:bg-transparent lg:border-0 lg:hover:text-black lg:p-0 transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all after:duration-300 hover:after:w-full"
+                            data-section="inventory">
+                            Inventory
+                        </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-[#16A34A] md:p-0 md:dark:hover:bg-transparent">Gallery</a>
+                        <a href="#why-us"
+                            class="nav-link relative inline-block py-2 px-3 font-[Poppins] text-gray-600 rounded hover:bg-neutral-tertiary lg:hover:bg-transparent lg:border-0 lg:hover:text-black lg:p-0 transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all after:duration-300 hover:after:w-full"
+                            data-section="why-us">
+                            Why Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#how-it-works"
+                            class="nav-link relative inline-block py-2 px-3 font-[Poppins] text-gray-600 rounded hover:bg-neutral-tertiary lg:hover:bg-transparent lg:border-0 lg:hover:text-black lg:p-0 transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all after:duration-300 hover:after:w-full"
+                            data-section="how-it-works">
+                            How it Works
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#gallery"
+                            class="nav-link relative inline-block py-2 px-3 font-[Poppins] text-gray-600 rounded hover:bg-neutral-tertiary lg:hover:bg-transparent lg:border-0 lg:hover:text-black lg:p-0 transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-green-500 after:transition-all after:duration-300 hover:after:w-full"
+                            data-section="gallery">
+                            Gallery
+                        </a>
                     </li>
                 </ul>
-                <button type="button"
-                    class="text-white bg-[#16A34A] hover:bg-[#16A34A] box-border border border-transparent mx-3 pointer-fine: focus:ring-4 focus:ring-[#16A34A] shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none" onclick="window.location.href='/register' ">Register</button>
-                <button type="button"
-                    class="text-white bg-[#16A34A] hover:bg-[#16A34A] box-border border border-transparent focus:ring-4 focus:ring-[#16A34A] shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none" onclick="window.location.href='/login' ">Login</button>
             </div>
-
         </div>
     </nav>
-    <div class="container mx-auto px-6 md:px-12 lg:px-20 pt-24 md:pt-40">
 
-        <div class="flex flex-col-reverse lg:flex-row items-center gap-12">
 
-            <!-- Left Content -->
-            <div class="w-full lg:w-1/2 text-center lg:text-left">
 
+    <!-- Page Sections -->
+    <section id="home" class="min-h-screen bg-[#ffffff] pt-25 md:pt-30 lg:pt-30  pb-20 overflow-x-hidden">
+        <div class="flex justify-between items-center flex-col md:flex-row lg:flex-row w-full max-w-7xl mx-auto px-4">
+            <div class="w-full lg:block lg:w-1/2 md:block md:w-1/2 flex flex-col justify-center items-center">
+                <p
+                    class="relative rounded-3xl w-3/4 sm:w-full md:w-1/2 lg:w-1/3 md:text-center text-center  font-bold bg-[#DCFCE7] text-[#029337] text-[9px] lg:text-[11px] mb-2 p-2 border border-[#029337]">
+                    Trusted by 500+ event planner</p>
                 <h1
-                    class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-[Poppins] font-bold text-white leading-tight">
-                    Complete Event Rental
-                    <span class="text-[#16A34A]">Solutions</span>
-                    for Every Occasion
+                    class="text-2xl text-center md:text-5xl lg:text-start md:text-start lg:text-7xl font-[Poppins] font-bold text-[#030825]">
+                    Premium <br>Event Rentals,
+                    <span class="text-[#029337]">Delivered <br>On Time.</span>
                 </h1>
+                <p class="font-[Poppins] text-xs md:text-sm mt-2 text-gray-500">From elegant weddings to corporate galas
+                    — rent chairs,
+                    tables, tents, catering equipment, and full buffet stations. Same-day delivery, spotless inventory,
+                    hassle-free booking.</p>
+                <div class="flex ">
+                    <button type="button"
+                        class="h-10 mt-2 me-2 transition transform hover:-translate-y-1 duration-500 hover:bg-[#03782e]
+    text-white bg-[#029337] focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50
+    font-medium rounded-base text-sm px-4 inline-flex items-center gap-2 cursor-pointer">
 
-                <p class="text-gray-300 mt-6 text-base sm:text-lg lg:text-xl leading-relaxed">
-                    From monoblock chairs and banquet tables to tents, food warmers,
-                    buffet stations, and catering equipment — Triple A Rental provides
-                    everything you need for successful events.
+                        Book Equipment
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
+                        </svg>
+                    </button>
+
+                    <button type="button"
+                        class="h-10 mt-2 text-gray-900  border border-[#029337] hover:bg-[#3b5998]/90 transform transition hover:-translate-y-1 duration-500
+    focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50
+    font-medium rounded-base text-sm px-4 inline-flex items-center cursor-pointer">
+
+                        View Inventory
+                    </button>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 md:w-1/2">
+                <img class=" h-57.5 md:h-97.5 mt-4 lg:mt-0 lg:h-137.5 w-full object-cover   rounded-4xl"
+                    src="{{ asset('images/hero-event.jpg') }}" alt="">
+            </div>
+        </div>
+    </section>
+    <section id="inventory" class="min-h-screen min-w-full px-0 pt-0 lg:pt-20 lg:pb-20 lg:px-4 bg-[#ffffff]">
+        <div class="max-w-7xl mx-auto p-4 w-full px-4">
+            <div class="text-center flex flex-col items-center justify-center w-full">
+                <p
+                    class="relative rounded-3xl text-[9px] lg:text-[11px] h-8  text-center font-bold bg-[#DCFCE7] text-[#029337]  mb-2 px-3 py-2 border border-[#029337]">
+                    OUR INVENTORY
                 </p>
+                <h1 class="lg:text-6xl md:text-5xl text-2xl mt-2 text-[#030825] font-bold font-[Poppins]">
+                    Everything you <br> need, in one place.
+                </h1>
+                <p class="text-gray-500 mt-2 lg:mt-3 mb-4 lg:text-sm text-xs">Browse our most-rented categories. Mix,
+                    match, and bundle to fit any event
+                    <br> size or theme.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
 
-                <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <button
-                        class="bg-[#16A34A] hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition">
-                        Book Now
+
+                <div
+                    class="group rounded-4xl bg-white h-65 block max-w-full p-6 border  transition-all hover:-translate-y-2 duration-400 border-default  shadow-xs">
+                    <a href="#" class="">
+                        <p
+                            class="bg-[#DCFCE7] w-15 h-15 text-[#029337]  text-center py-2 rounded-2xl  group-hover:bg-[#029337] group-hover:text-white">
+                            <i class="pt-2 fa-solid fa-chair text-3xl "></i>
+                        </p>
+                    </a>
+                    <div class="mt-5 flex justify-between">
+                        <h4 class="font-bold text-xl font-[Poppins]">Chairs</h4>
+                        <p class="text-gray-500 text-xs pt-2">3,500+ units</p>
+                    </div>
+                    <h4 class="mt-4 mb-3 text-gray-500 text-sm">
+                        Monoblock, Tiffany, banquet & folding chairs in white, black, gold and more.
+                    </h4>
+                    <a href="#" class="text-sm text-[#029337]">View Details <i
+                            class="fa-solid fa-arrow-right group-hover:translate-x-2"></i></a>
+
+                </div>
+                <div
+                    class="group rounded-4xl bg-white h-65 block max-w-full p-6 border mx-2  transition-all hover:-translate-y-2 duration-400 border-default  shadow-xs">
+                    <a href="#" class="">
+                        <p
+                            class="bg-[#DCFCE7] text-[#029337] w-15 h-15  text-center py-2 rounded-2xl  group-hover:bg-[#029337] group-hover:text-white">
+                            <i class="pt-2 fa-solid fa-table text-3xl"></i>
+                        </p>
+                    </a>
+                    <div class="mt-5 flex justify-between">
+                        <h4 class="font-bold text-xl font-[Poppins]">Tables</h4>
+                        <p class="text-gray-500 text-xs pt-2">1,200+ units</p>
+                    </div>
+                    <h4 class="mt-4 mb-3 text-gray-500 text-sm">
+                        Round, rectangular, cocktail and serpentine tables for any layout.
+                    </h4>
+                    <a href="#" class="text-sm text-[#029337]">View Details <i
+                            class="fa-solid fa-arrow-right group-hover:translate-x-2"></i></a>
+
+                </div>
+                <div
+                    class="group bg-white rounded-4xl  h-65 block max-w-full p-6 border  transition-all hover:-translate-y-2 duration-400 border-default  shadow-xs">
+                    <a href="#" class="">
+                        <p
+                            class="bg-[#DCFCE7] w-15 h-15 text-[#029337] text-center py-2 rounded-2xl  group-hover:bg-[#029337] group-hover:text-white">
+                            <i class="fa-solid fa-tent pt-2 text-3xl"></i>
+                        </p>
+                    </a>
+                    <div class="mt-5 flex justify-between">
+                        <h4 class="font-bold text-xl font-[Poppins]">Tents</h4>
+                        <p class="text-gray-500 text-xs pt-2">150+ sizes</p>
+                    </div>
+                    <h4 class="mt-4 mb-3 text-gray-500 text-sm">
+                        Frame, pole, and clear-span tents from 10×10 up to grand pavilions.
+                    </h4>
+                    <a href="#" class="text-sm text-[#029337]">View Details <i
+                            class="fa-solid fa-arrow-right group-hover:translate-x-2"></i></a>
+
+                </div>
+
+
+                <div
+                    class="group rounded-4xl mt-2 bg-white h-65 block max-w-full p-6 border  transition-all hover:-translate-y-2 duration-400 border-default  shadow-xs">
+                    <a href="#" class="">
+                        <p
+                            class="bg-[#DCFCE7] w-15 h-15 text-[#029337]  text-center py-2 rounded-2xl  group-hover:bg-[#029337] group-hover:text-white">
+                            <i class="fa-solid fa-holly-berry pt-2 text-3xl"></i>
+                        </p>
+                    </a>
+                    <div class="mt-5 flex justify-between">
+                        <h4 class="font-bold text-xl font-[Poppins]">Catering Equipment</h4>
+                        <p class="text-gray-500 text-xs pt-2">2,000+ units</p>
+                    </div>
+                    <h4 class="mt-4 mb-3">
+                        Chafing dishes, beverage dispensers, glassware, cutlery and linens.
+                    </h4>
+                    <a href="#" class="text-sm text-[#029337]">View Details <i
+                            class="fa-solid fa-arrow-right group-hover:translate-x-1"></i></a>
+
+                </div>
+                <div
+                    class="group rounded-4xl mt-2 bg-white h-65 block max-w-full p-6 border mx-2  transition-all hover:-translate-y-2 duration-400 border-default  shadow-xs">
+                    <a href="#" class="">
+                        <p
+                            class="bg-[#DCFCE7] text-[#029337] w-15 h-15  text-center py-2 rounded-2xl  group-hover:bg-[#029337] group-hover:text-white">
+                            <i class="fa-solid fa-utensils pt-2 text-3xl"></i>
+                        </p>
+                    </a>
+                    <div class="mt-5 flex justify-between">
+                        <h4 class="font-bold text-xl font-[Poppins]">Buffet Stations</h4>
+                        <p class="text-gray-500 text-xs pt-2">300+ sets</p>
+                    </div>
+                    <h4 class="mt-4 mb-3">
+                        Food warmers, soup kettles, carving stations and elegant displays.
+                    </h4>
+                    <a href="#" class="text-sm text-[#029337]">View Details <i
+                            class="fa-solid fa-arrow-right group-hover:translate-x-2"></i></a>
+
+                </div>
+                <div
+                    class="group bg-white  mt-2 rounded-4xl h-65 block max-w-full p-6 border  transition-all hover:-translate-y-2 duration-400 border-default  shadow-xs">
+                    <a href="#" class="">
+                        <p
+                            class="bg-[#DCFCE7] w-15 h-15 text-[#029337] text-center py-2 rounded-2xl  group-hover:bg-[#029337] group-hover:text-white">
+                            <i class="fa-solid fa-box-open pt-2 text-3xl"></i>
+                        </p>
+                    </a>
+                    <div class="mt-5 flex justify-between">
+                        <h4 class="font-bold text-xl font-[Poppins]">Event Packages</h4>
+                        <p class="text-gray-500 text-xs pt-2">20+ bundles</p>
+                    </div>
+                    <h4 class="mt-4 mb-3">
+                        All-in-one packages priced for 50, 100, 200, 500+ guests.
+                    </h4>
+                    <a href="#" class="text-sm text-[#029337]">View Details <i
+                            class="fa-solid fa-arrow-right group-hover:translate-x-2"></i></a>
+
+                </div>
+            </div>
+    </section>
+    <section id="why-us" class="min-h-screen pt-20 pb-20 px-4 bg-[#ffffff]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center flex flex-col items-center justify-center w-full">
+                <p
+                    class="relative rounded-3xl text-[9px] lg:text-[11px] h-8  text-center font-bold bg-[#DCFCE7] text-[#029337]  mb-2 px-3 py-2 border border-[#029337]">
+                    WHY TRIPLE A
+                </p>
+                <h1 class="lg:text-6xl md:text-5xl text-2xl mt-2 text-[#030825] font-bold font-[Poppins]">
+                    Built for planners who <br> can't afford surprises.
+                </h1>
+                <p class="text-gray-500 mt-2 lg:mt-3 mb-4 lg:text-sm text-xs">
+                    Six reasons clients book us again — and refer their colleagues.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+                <div
+                    class="group bg-neutral-primary-soft block max-w-full p-6 border border-default rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <p
+                        class="bg-[#DCFCE7] text-[#029337] rounded-4xl pt-1 h-12 w-12 text-center group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-peso-sign pt-2 text-2xl"></i>
+                    </p>
+                    <h5 class="mb-2 mt-3 text-xl font-semibold tracking-tight text-heading leading-8">Affordable Rental
+                        Rates</h5>
+                    <p class="text-body text-sm">Transparent pricing with volume discounts. No hidden fees, ever.</p>
+                </div>
+
+
+                <div
+                    class="group bg-neutral-primary-soft block max-w-full p-6 border border-default rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <p
+                        class="bg-[#DCFCE7] text-[#029337] rounded-4xl pt-1 h-12 w-12 text-center group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-kitchen-set pt-2 text-2xl"></i>
+                    </p>
+                    <h5 class="mb-2 mt-3 text-xl font-semibold tracking-tight text-heading leading-8">Well-Maintained
+                        Equipment</h5>
+                    <p class="text-body text-sm">Every item inspected, cleaned and sanitized before each booking.</p>
+                </div>
+
+
+                <div
+                    class="group bg-neutral-primary-soft block max-w-full p-6 border border-default rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <p
+                        class="bg-[#DCFCE7] text-[#029337] rounded-4xl pt-1 h-12 w-12 text-center group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-truck-pickup pt-2 text-2xl"></i>
+                    </p>
+                    <h5 class="mb-2 mt-3 text-xl font-semibold tracking-tight text-heading leading-8">Fast Delivery &
+                        Pickup</h5>
+                    <p class="text-body text-sm">Same-day delivery in metro areas. On-time, every time.</p>
+                </div>
+                <div
+                    class="group bg-neutral-primary-soft block max-w-full p-6 border border-default rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <p
+                        class="bg-[#DCFCE7] text-[#029337] rounded-4xl pt-1 h-12 w-12 text-center group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-boxes-stacked pt-2 text-2xl"></i>
+                    <h5 class="mb-2 mt-3 text-xl font-semibold tracking-tight text-heading leading-8">
+                        Large Inventory
+                    </h5>
+                    <p class="text-body text-sm">0,000+ items ready to ship — scale from intimate to 1,000+ guests.</p>
+                </div>
+
+
+                <div
+                    class="group bg-neutral-primary-soft block max-w-full p-6 border border-default rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <p
+                        class="bg-[#DCFCE7] text-[#029337] rounded-4xl pt-1 h-12 w-12 text-center group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-box-open pt-2 text-2xl"></i>
+                    </p>
+                    <h5 class="mb-2 mt-3 text-xl font-semibold tracking-tight text-heading leading-8">Flexible Packages
+                    </h5>
+                    <p class="text-body text-sm">Build custom bundles or pick a ready-made event package.</p>
+                </div>
+
+
+                <div
+                    class="group bg-neutral-primary-soft block max-w-full p-6 border border-default rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <p
+                        class="bg-[#DCFCE7] text-[#029337] rounded-4xl pt-1 h-12 w-12 text-center group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-user-shield pt-2 text-2xl"></i>
+                    </p>
+                    <h5 class="mb-2 mt-3 text-xl font-semibold tracking-tight text-heading leading-8">Trusted by
+                        Hundreds</h5>
+                    <p class="text-body text-sm">Backed by 98% client satisfaction across 500+ successful events.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="how-it-works" class="bg-[#ffffff] min-h-screen pt-20 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center flex flex-col items-center justify-center w-full">
+                <p
+                    class="relative rounded-3xl text-[9px] lg:text-[11px] h-8  text-center font-bold bg-[#DCFCE7] text-[#029337]  mb-2 px-3 py-2 border border-[#029337]">
+                    HOW IT WORKS
+                </p>
+                <h1 class="lg:text-6xl md:text-5xl text-2xl mt-2 text-[#030825] font-bold font-[Poppins]">
+                    From browse to setup <br> — in 4 easy steps.
+                </h1>
+                <p class="text-gray-500 mt-2 lg:mt-3 mb-4 lg:text-sm text-xs">
+                    A frictionless booking flow designed around busy event planners.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div
+                    class="group bg-neutral-primary-soft grid max-w-full justify-center items-center p-6 rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <div><button class="bg-[#DCFCE7] group-hover:bg-[#029337] group-hover:text-white  text-md w-8 h-8 rounded-full text-[#029337]">
+                        1
                     </button>
 
-                    <button
-                        class="border border-[#16A34A] text-[#16A34A] hover:bg-[#16A34A] hover:text-white px-8 py-3 rounded-lg font-medium transition">
-                        View Equipment
+                    </div>
+                    <div
+                        class="w-14 h-14 mx-auto rounded-full bg-[#DCFCE7] text-[#029337] flex items-center justify-center transition-all duration-300 group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-peso-sign text-2xl"></i>
+                    </div>
+                    <h5 class="mb-2 text-center mt-3 text-xl font-semibold tracking-tight text-heading leading-8">
+                        Affordable Rental
+                        Rates</h5>
+                    <p class="text-body text-sm text-center">Transparent pricing with volume discounts. No hidden fees,
+                        ever.</p>
+                </div>
+
+
+                <div
+                    class="group bg-neutral-primary-soft grid max-w-full justify-center items-center p-6 rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <div><button class="bg-[#DCFCE7] group-hover:bg-[#029337] group-hover:text-white  text-md w-8 h-8 rounded-full text-[#029337]">
+                        2
                     </button>
-                </div>
 
-            </div>
-
-            <!-- Right Image -->
-            <div class="w-full lg:w-1/2 flex justify-center">
-
-                <img src="{{ asset('images/logo.png') }}" alt="Event Equipment"
-                    class="w-full max-w-sm sm:max-w-md lg:max-w-xl lg:h-120 rounded-2xl shadow-2xl">
-
-            </div>
-
-        </div>
-
-    </div>
-    <section id="equipment" class="scroll-pt-50 container mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-22">
-
-        <div class="max-w-4xl  text-start">
-
-            <span class="inline-block px-4 py-2 bg-green-500/10 text-[#16A34A] rounded-full text-sm font-semibold">
-                Our Inventory
-            </span>
-
-            <h2 class="mt-2 text-3xl md:text-4xl lg:text-5xl font-[Poppins] font-bold text-white leading-tight">
-                Everything for Your Event,
-                <br><span class="text-[#16A34A]">Under One Roof</span>
-            </h2>
-
-            <p class="mt-2 text-gray-300 text-base md:text-md leading-relaxed">
-                Browse our six main categories. Every item is professionally
-                maintained and <br> ready to make your event unforgettable.
-            </p>
-
-        </div>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-2">
-
-
-
-
-            <div class="bg-[#041a0d] block max-w-full border border-[#09301a] rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base h-50 w-full" src="{{ asset('images/logo.png') }}" alt="" />
-                </a>
-                <div class="p-6 text-start">
-
-                    <div class="flex justify-between items-center ">
-                        <h3 class=" text-white font-semibold text-xl">Monoblock Chairs</h3>
-                        <p class="text-gray-300 text-[13px]">2,400+ units</p>
                     </div>
-                    <p class="text-gray-300 mt-1">Monoblock · Banquet · Plastic</p>
-                    <a href="#" class="text-[#18783b] flex hover:text-green-400 mt-2 font-medium">
-                        View Details
-                        <svg class="w-6 h-6 text-[#16A34A] dark:text-[#16A34A]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-
-                    </a>
-                </div>
-            </div>
-            <div class="bg-[#041a0d] block max-w-full border border-[#09301a] rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base h-50 w-full" src="{{ asset('images/logo.png') }}" alt="" />
-                </a>
-                <div class="p-6 text-start">
-
-                    <div class="flex justify-between items-center ">
-                        <h3 class=" text-white font-semibold text-xl">Monoblock Chairs</h3>
-                        <p class="text-gray-300 text-[13px]">2,400+ units</p>
+                    <div
+                        class="w-14 h-14 mx-auto rounded-full bg-[#DCFCE7] text-[#029337] flex items-center justify-center transition-all duration-300 group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-peso-sign text-2xl"></i>
                     </div>
-                    <p class="text-gray-300 mt-1">Monoblock · Banquet · Plastic</p>
-                    <a href="#" class="text-[#18783b] flex hover:text-green-400 mt-2 font-medium">
-                        View Details
-                        <svg class="w-6 h-6 text-[#16A34A] dark:text-[#16A34A]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-
-                    </a>
+                    <h5 class="mb-2 text-center mt-3 text-xl font-semibold tracking-tight text-heading leading-8">
+                        Affordable Rental
+                        Rates</h5>
+                    <p class="text-body text-sm text-center">Transparent pricing with volume discounts. No hidden fees,
+                        ever.</p>
                 </div>
-            </div>
-            <div class="bg-[#041a0d] block max-w-full border border-[#09301a] rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base h-50 w-full" src="{{ asset('images/logo.png') }}" alt="" />
-                </a>
-                <div class="p-6 text-start">
 
-                    <div class="flex justify-between items-center ">
-                        <h3 class=" text-white font-semibold text-xl">Monoblock Chairs</h3>
-                        <p class="text-gray-300 text-[13px]">2,400+ units</p>
+
+                <div
+                    class="group bg-neutral-primary-soft grid max-w-full justify-center items-center p-6 rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <div><button class="bg-[#DCFCE7] group-hover:bg-[#029337] group-hover:text-white  text-md w-8 h-8 rounded-full text-[#029337]">
+                        3
+                    </button>
+
                     </div>
-                    <p class="text-gray-300 mt-1">Monoblock · Banquet · Plastic</p>
-                    <a href="#" class="text-[#18783b] flex hover:text-green-400 mt-2 font-medium">
-                        View Details
-                        <svg class="w-6 h-6 text-[#16A34A] dark:text-[#16A34A]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-
-                    </a>
-                </div>
-            </div>
-
-        </div>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-2">
-
-
-
-
-            <div class="bg-[#041a0d] block max-w-full border border-[#09301a] rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base h-50 w-full" src="{{ asset('images/logo.png') }}" alt="" />
-                </a>
-                <div class="p-6 text-start">
-
-                    <div class="flex justify-between items-center ">
-                        <h3 class=" text-white font-semibold text-xl">Monoblock Chairs</h3>
-                        <p class="text-gray-300 text-[13px]">2,400+ units</p>
+                    <div
+                        class="w-14 h-14 mx-auto rounded-full bg-[#DCFCE7] text-[#029337] flex items-center justify-center transition-all duration-300 group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-peso-sign text-2xl"></i>
                     </div>
-                    <p class="text-gray-300 mt-1">Monoblock · Banquet · Plastic</p>
-                    <a href="#" class="text-[#18783b] flex hover:text-green-400 mt-2 font-medium">
-                        View Details
-                        <svg class="w-6 h-6 text-[#16A34A] dark:text-[#16A34A]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-
-                    </a>
+                    <h5 class="mb-2 text-center mt-3 text-xl font-semibold tracking-tight text-heading leading-8">
+                        Affordable Rental
+                        Rates</h5>
+                    <p class="text-body text-sm text-center">Transparent pricing with volume discounts. No hidden fees,
+                        ever.</p>
                 </div>
-            </div>
-            <div class="bg-[#041a0d] block max-w-full border border-[#09301a] rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base h-50 w-full" src="{{ asset('images/logo.png') }}" alt="" />
-                </a>
-                <div class="p-6 text-start">
+                <div
+                    class="group bg-neutral-primary-soft grid max-w-full justify-center items-center p-6 rounded-4xl shadow-xs transition-all hover:-translate-y-2 duration-400">
+                    <div><button class="bg-[#DCFCE7] group-hover:bg-[#029337] group-hover:text-white  text-md w-8 h-8 rounded-full text-[#029337]">
+                        4
+                    </button>
 
-                    <div class="flex justify-between items-center ">
-                        <h3 class=" text-white font-semibold text-xl">Monoblock Chairs</h3>
-                        <p class="text-gray-300 text-[13px]">2,400+ units</p>
                     </div>
-                    <p class="text-gray-300 mt-1">Monoblock · Banquet · Plastic</p>
-                    <a href="#" class="text-[#18783b] flex hover:text-green-400 mt-2 font-medium">
-                        View Details
-                        <svg class="w-6 h-6 text-[#16A34A] dark:text-[#16A34A]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-
-                    </a>
-                </div>
-            </div>
-            <div class="bg-[#041a0d] block max-w-full border border-[#09301a] rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base h-50 w-full" src="{{ asset('images/logo.png') }}" alt="" />
-                </a>
-                <div class="p-6 text-start">
-
-                    <div class="flex justify-between items-center ">
-                        <h3 class=" text-white font-semibold text-xl">Monoblock Chairs</h3>
-                        <p class="text-gray-300 text-[13px]">2,400+ units</p>
+                    <div
+                        class="w-14 h-14 mx-auto rounded-full bg-[#DCFCE7] text-[#029337] flex items-center justify-center transition-all duration-300 group-hover:bg-[#029337] group-hover:text-white">
+                        <i class="fa-solid fa-peso-sign text-2xl"></i>
                     </div>
-                    <p class="text-gray-300 mt-1">Monoblock · Banquet · Plastic</p>
-                    <a href="#" class="text-[#18783b] flex hover:text-green-400 mt-2 font-medium">
-                        View Details
-                        <svg class="w-6 h-6 text-[#16A34A] dark:text-[#16A34A]" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-
-                    </a>
+                    <h5 class="mb-2 text-center mt-3 text-xl font-semibold tracking-tight text-heading leading-8">
+                        Affordable Rental
+                        Rates</h5>
+                    <p class="text-body text-sm text-center">Transparent pricing with volume discounts. No hidden fees,
+                        ever.</p>
                 </div>
             </div>
-
         </div>
     </section>
-    <section id="why" class="scroll-mt-5 container mx-auto px-6 md:px-12 lg:px-20 py-15">
-        <div class="max-w-4xl  text-start">
 
-            <span class="inline-block px-4 py-2 bg-green-500/10 text-[#16A34A] rounded-full text-sm font-semibold">
-                Why Choose Us
-            </span>
-
-            <h2 class="mt-2 text-3xl md:text-4xl lg:text-5xl font-[Poppins] font-bold text-white leading-tight">
-                The Reliable Partner Behind
-                <br><span class="text-[#16A34A]">Great Events</span>
-            </h2>
-
-
-
-        </div>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-2">
-
-
-            <div class="bg-neutral-primary-soft transition duration-300 hover:-translate-y-2 block max-w-full p-6 border border-success rounded-base shadow-xs">
-                <svg class="w-7 h-7 mb-3 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
-                </svg>
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">Affordable Rental Rates</h5>
-                </a>
-                <p class="mb-3 text-body">
-Honest pricing with transparent packages — no hidden fees.</p>
-                <a href="#" class="inline-flex font-medium items-center text-fg-brand hover:underline">
-                    See our guideline
-                    <svg class="w-4 h-4 ms-2 rtl:rotate-270deg" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                    </svg>
-                </a>
-            </div>
-            <div class="bg-neutral-primary-soft transition duration-300 hover:-translate-y-2 block max-w-full p-6 border border-default rounded-base shadow-xs">
-                <svg class="w-7 h-7 mb-3 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
-                </svg>
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">Well-Maintained Equipment</h5>
-                </a>
-                <p class="mb-3 text-body">
-Every item is cleaned, inspected, and ready to go.</p>
-                <a href="#" class="inline-flex font-medium items-center text-fg-brand hover:underline">
-                    See our guideline
-                    <svg class="w-4 h-4 ms-2 rtl:rotate-270deg" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                    </svg>
-                </a>
-            </div>
-            <div class="bg-neutral-primary-soft transition duration-300 hover:-translate-y-2 block max-w-full p-6 border border-default rounded-base shadow-xs">
-                <svg class="w-7 h-7 mb-3 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
-                </svg>
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">Fast Delivery & Pickup</h5>
-                </a>
-                <p class="mb-3 text-body">
-On-time delivery across the city, with setup support</p>
-                <a href="#" class="inline-flex font-medium items-center text-fg-brand hover:underline">
-                    See our guideline
-                    <svg class="w-4 h-4 ms-2 rtl:rotate-270deg" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                    </svg>
-                </a>
-            </div>
-
-        </div>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-2">
-
-
-            <div class=" bg-[#041a0d] transition duration-300 hover:-translate-y-2 block max-w-full p-6 border border-green-500 rounded-base shadow-xs ">
-                <svg class=" h-10 p-2 rounded-2xl mb-3 text-black bg-green-500 w-10 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
-                </svg>
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">Large Inventory</h5>
-                </a>
-                <p class="mb-3 text-md text-gray-300">10,000+ items in stock — no last-minute compromises.</p>
-
-            </div>
-            <div class="bg-neutral-primary-soft transition duration-300 hover:-translate-y-2 block max-w-full p-6 border border-default rounded-base shadow-xs">
-                <svg class="w-7 h-7 mb-3 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
-                </svg>
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">Flexible Rental Packages</h5>
-                </a>
-                <p class="mb-3 text-body">Day, weekend, or multi-day — built around your event.</p>
-                <a href="#" class="inline-flex font-medium items-center text-fg-brand hover:underline">
-                    See our guideline
-                    <svg class="w-4 h-4 ms-2 rtl:rotate-270deg" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                    </svg>
-                </a>
-            </div>
-            <div class="bg-neutral-primary-soft transition duration-300 hover:-translate-y-2 block max-w-full p-6 border border-default rounded-base shadow-xs">
-                <svg class="w-7 h-7 mb-3 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 21v-9m3-4H7.5a2.5 2.5 0 1 1 0-5c1.5 0 2.875 1.25 3.875 2.5M14 21v-9m-9 0h14v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8ZM4 8h16a1 1 0 0 1 1 1v3H3V9a1 1 0 0 1 1-1Zm12.155-5c-3 0-5.5 5-5.5 5h5.5a2.5 2.5 0 0 0 0-5Z" />
-                </svg>
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-heading">Trusted by Hundreds of Clients</h5>
-                </a>
-                <p class="mb-3 text-body">Weddings, fiestas, corporate galas, and more.</p>
-                <a href="#" class="inline-flex font-medium items-center text-fg-brand hover:underline">
-                    See our guideline
-                    <svg class="w-4 h-4 ms-2 rtl:rotate-270deg" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
-                    </svg>
-                </a>
-            </div>
-
+    <section id="gallery" class="min-h-screen pt-20 pb-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Gallery</h2>
+            <p class="text-gray-600">Browse our rental inventory</p>
         </div>
     </section>
+
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const navbar = document.getElementById("navbar");
@@ -438,11 +471,11 @@ On-time delivery across the city, with setup support</p>
             window.addEventListener("scroll", function() {
                 if (window.scrollY > 50) {
                     navbar.classList.add(
-                        "bg-[#041a0d]/80",
-                        "backdrop-blur-lg",
+                        "bg-white/5",
+                        "backdrop-blur-xl",
                         "border-b",
                         "border-white/10",
-                        "shadow-lg"
+
                     );
                 } else {
                     navbar.classList.remove(
@@ -455,7 +488,70 @@ On-time delivery across the city, with setup support</p>
                 }
             });
         });
+
+        function goToRegister() {
+            window.location.href = "{{ route('register.form') }}";
+        }
     </script>
+
+    <!-- Active Link Highlighting Script (Scroll Spy) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll(".nav-link");
+            const sections = document.querySelectorAll("section");
+
+            // Classes that should ONLY be present when a link is active
+            // This includes the green underline (after:w-full)
+            const activeOnlyClasses = ["text-black", "after:w-full"];
+
+            function updateActiveLink() {
+                let current = "";
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // Offset for better user experience
+                    if (window.scrollY >= sectionTop - 150) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    // Remove active state
+                    link.classList.remove(...activeOnlyClasses);
+
+                    // Re-add default text color for inactive links
+                    link.classList.add("text-gray-600");
+
+                    // If current link matches section in view, apply active styling
+                    if (current && link.getAttribute("data-section") === current) {
+                        link.classList.remove("text-gray-600");
+                        link.classList.add(...activeOnlyClasses);
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", updateActiveLink);
+            updateActiveLink(); // Run on load
+
+            // Handle smooth scroll on click
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(e) {
+                    const href = this.getAttribute("href");
+                    if (href.startsWith("#")) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({
+                                behavior: "smooth"
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

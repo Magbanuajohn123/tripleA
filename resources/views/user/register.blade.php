@@ -15,9 +15,9 @@
 
 <body class="bg-[#041a0d] flex items-center justify-center min-h-screen">
 
-    <div class="w-full max-w-sm bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs">
-
-        <form action="/register" method="POST">
+    <div class="w-full max-w-lg bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs">
+        <button onclick="history.back()">Back</button>
+        <form action="{{ route('register') }}" method="POST">
             @csrf
 
             <img src="{{ asset('images/logo.png') }}" alt="Company Logo"
@@ -28,15 +28,40 @@
             </h5>
 
             <!-- Name -->
-            <div class="mb-4">
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div class="mb-4">
                 <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
-                    Full Name
+                    Firstname:
                 </label>
-                <input type="text" id="name" name="name"
+                <input type="text" id="name" name="fname"
                     class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                     placeholder="John Doe" required>
             </div>
-
+            <div class="mb-4">
+                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
+                    Middlename
+                </label>
+                <input type="text" id="name" name="mname"
+                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                    placeholder="John Doe" required>
+            </div>
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
+                    Lastname
+                </label>
+                <input type="text" id="name" name="lname"
+                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                    placeholder="John Doe" required>
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
+                    Contact No.
+                </label>
+                <input type="number" id="name" name="contact"
+                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                    placeholder="John Doe" required>
+            </div>
             <!-- Email -->
             <div class="mb-4">
                 <label for="email" class="block mb-2.5 text-sm font-medium text-heading">
@@ -72,18 +97,25 @@
         </form>
 
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-@if(session('success'))
-<div id="toast-success"
-    class="fixed top-5 right-5 z-50 p-4 bg-green-100 text-green-700 rounded-lg shadow">
-    {{ session('success') }}
-</div>
 
-<script>
-    setTimeout(() => {
-        window.location.href = "/login";
-    }, 2000); // 2 seconds delay
+
+
+
+@if(session('success'))
+<script type="module">
+window.Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: "{{ session('success') }}",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true
+});
+setTimeout(() => {
+    window.location.href = "{{ url('/login') }}";
+}, 2000);
 </script>
 @endif
 </body>
