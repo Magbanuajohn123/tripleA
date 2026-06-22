@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\UserTripleA;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 class AuthController extends Controller
 {
     public function showRegistration()
@@ -66,13 +67,15 @@ class AuthController extends Controller
 
             // for the role of user that going to login
             if (Auth::guard('web')->attempt($credentials)) {
-                $request->session()->regenerate();
+    $request->session()->regenerate();
 
-                return back()->with([
-                    'success' => 'Welcome User!',
-                    'redirect'=>'/'
-                ]);
-            }
+   
+
+    return back()->with([
+        'success' => 'Welcome User!',
+        'redirect' => '/user/homePage'
+    ]);
+}
 
             // if both user is not found
             return back()->with([

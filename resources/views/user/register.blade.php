@@ -4,120 +4,156 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <title> Register</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <!-- Laravel Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
-        rel="stylesheet">
 </head>
 
-<body class="bg-[#041a0d] flex items-center justify-center min-h-screen">
+<body class="bg-gray-50 font-sans text-slate-900 antialiased min-h-screen flex items-center justify-center p-4">
 
-    <div class="w-full max-w-lg bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs">
-        <button onclick="history.back()">Back</button>
-        <form action="{{ route('register') }}" method="POST">
-            @csrf
-
-            <img src="{{ asset('images/logo.png') }}" alt="Company Logo"
-                class="mx-auto h-16 w-16 mb-2">
-
-            <h5 class="text-xl font-semibold text-center text-heading mb-6">
-                Create your account
-            </h5>
-
-            <!-- Name -->
-           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <div class="mb-4">
-                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
-                    Firstname:
-                </label>
-                <input type="text" id="name" name="fname"
-                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                    placeholder="John Doe" required>
-            </div>
-            <div class="mb-4">
-                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
-                    Middlename
-                </label>
-                <input type="text" id="name" name="mname"
-                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                    placeholder="John Doe" required>
-            </div>
-            </div>
-            <div class="mb-4">
-                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
-                    Lastname
-                </label>
-                <input type="text" id="name" name="lname"
-                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                    placeholder="John Doe" required>
-            </div>
-            <div class="mb-4">
-                <label for="name" class="block mb-2.5 text-sm font-medium text-heading">
-                    Contact No.
-                </label>
-                <input type="number" id="name" name="contact"
-                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                    placeholder="John Doe" required>
-            </div>
-            <!-- Email -->
-            <div class="mb-4">
-                <label for="email" class="block mb-2.5 text-sm font-medium text-heading">
-                    Email Address
-                </label>
-                <input type="email" id="email" name="email"
-                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                    placeholder="example@company.com" required>
-            </div>
-
-            <!-- Password -->
-            <div class="mb-4">
-                <label for="password" class="block mb-2.5 text-sm font-medium text-heading">
-                    Password
-                </label>
-                <input type="password" id="password" name="password"
-                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                    placeholder="••••••••" required>
-            </div>
-            <button type="submit"
-                class="text-white bg-brand border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none w-full mb-3">
-                Create Account
+    <div class="w-full max-w-lg">
+        <!-- Back Navigation -->
+        <div class="mb-6">
+            <button onclick="history.back()"
+                class="group flex items-center text-sm font-medium text-slate-500 hover:text-brand transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 transform group-hover:-translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to previous page
             </button>
+        </div>
 
-            <div class="text-sm font-medium text-body text-center">
-                Already have an account?
-                <a href="/login"
-                    class="text-fg-brand hover:underline">
-                    Sign In
-                </a>
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden">
+            <div class="p-8 md:p-10">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-brand/10 mb-4">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 w-10 object-contain">
+                    </div>
+                    <h1 class="text-2xl font-bold font-display text-slate-900">Create your account</h1>
+                    <p class="text-slate-500 mt-2 text-sm">Join us today and start your journey</p>
+                </div>
+
+                <form action="{{ route('register') }}" method="POST" class="space-y-5">
+                    @csrf
+
+                    <!-- Name Group -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="fname" class="block text-sm font-semibold text-slate-700 mb-1.5">First Name</label>
+                            <input type="text" id="fname" name="fname" required
+                                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 outline-none placeholder:text-slate-400 text-sm"
+                                placeholder="John">
+                        </div>
+                        <div>
+                            <label for="mname" class="block text-sm font-semibold text-slate-700 mb-1.5">Middle Name</label>
+                            <input type="text" id="mname" name="mname"
+                                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 outline-none placeholder:text-slate-400 text-sm"
+                                placeholder="Quincy">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="lname" class="block text-sm font-semibold text-slate-700 mb-1.5">Last Name</label>
+                        <input type="text" id="lname" name="lname" required
+                            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 outline-none placeholder:text-slate-400 text-sm"
+                            placeholder="Doe">
+                    </div>
+
+                    <!-- Contact & Email -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="contact" class="block text-sm font-semibold text-slate-700 mb-1.5">Contact No.</label>
+                            <input type="tel" id="contact" name="contact" required
+                                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 outline-none placeholder:text-slate-400 text-sm"
+                                placeholder="0912 345 6789">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 outline-none placeholder:text-slate-400 text-sm"
+                                placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
+                        <div class="relative group">
+                            <input type="password" id="password" name="password" required
+                                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all duration-200 outline-none placeholder:text-slate-400 text-sm"
+                                placeholder="••••••••">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer hover:text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="mt-1.5 text-xs text-slate-500">Must be at least 8 characters long.</p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-2">
+                        <button type="submit"
+                            class="w-full py-3 px-4 bg-brand hover:bg-brand-dark text-white font-bold rounded-lg shadow-lg shadow-brand/20 transition-all duration-200 transform active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2">
+                            Create Account
+                        </button>
+                    </div>
+
+                    <!-- Footer Link -->
+                    <div class="text-center mt-6">
+                        <p class="text-sm text-slate-600">
+                            Already have an account?
+                            <a href="/login" class="font-bold text-brand hover:underline decoration-2 underline-offset-4">
+                                Sign In
+                            </a>
+                        </p>
+                    </div>
+                </form>
             </div>
-
-        </form>
-
+        </div>
     </div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
-
-
-
-@if(session('success'))
-<script type="module">
-window.Swal.fire({
-    toast: true,
-    position: 'top-end',
-    icon: 'success',
-    title: "{{ session('success') }}",
-    showConfirmButton: false,
-    timer: 2000,
-    timerProgressBar: true
-});
-setTimeout(() => {
-    window.location.href = "{{ url('/login') }}";
-}, 2000);
-</script>
-@endif
+    @if(session('success'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: "{{ session('success') }}",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true
+        });
+        setTimeout(() => {
+            window.location.href = "{{ url('/login') }}";
+        }, 2000);
+    </script>
+    @endif
+    @if(session('error'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'error',
+            title: "{{ session('error') }}",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true
+        });
+        setTimeout(() => {
+            window.location.href = "{{ url('/register') }}";
+        }, 2000);
+    </script>
+    @endif
 </body>
 
 </html>

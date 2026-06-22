@@ -3,20 +3,26 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\User\UserController;
 use App\Models\Product;
-
+use App\Http\Controllers\AIChatController;
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('guest')->group(function () {
+Route::middleware('web')->group(function () {
+    Route::get('/user/homePage', [UserController::class, 'home'])->name('home.view');
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login.form');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
-
     Route::get('/register', [AuthController::class, 'showRegistration'])->name('register.form');
     Route::post('/register', [AuthController::class, 'register'])->name('register');
-});
 
+    Route::post('/ai-chat', [AIChatController::class, 'chat']);
+});
+  Route::get('/login', [AuthController::class, 'showLogin'])->name('login.form');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/register', [AuthController::class, 'showRegistration'])->name('register.form');
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/adminDashboard', [AdminController::class, 'dashboard'])
         ->name('admin.dashboard');
